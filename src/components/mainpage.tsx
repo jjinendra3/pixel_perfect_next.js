@@ -11,12 +11,12 @@ import { MdVerified } from "react-icons/md";
 import image1 from "../../public/img1.jpeg";
 import logo from "../../public/logo.png";
 import { Separator } from "./ui/separator";
+import { FaAngleUp } from "react-icons/fa6";
 import { Slider } from "@/components/ui/slider"
-import {Input} from "@/components/ui/input"
 function Left() {
   return (
-    <div className="border flex rounded-lg ">
-      <div className="relative w-4/12">
+    <div className="border flex md:flex-row flex-col rounded-lg ">
+      <div className="relative md:w-4/12">
         <div className="absolute top-5 left-5">
           <Badge
             variant="default"
@@ -37,10 +37,10 @@ function Left() {
         <img
           src={dummy.src}
           alt=""
-          className="rounded-l-lg object-none h-full w-full"
+          className="rounded-l-lg object-none h-full w-full "
         />
       </div>
-      <div className="flex flex-col w-8/12 pt-4 ">
+      <div className="flex flex-col md:w-8/12 pt-4 ">
         <div className="flex text-lg px-4 ">
           <div className="font-bold">₹ 1,70,534</div> / per month
         </div>
@@ -53,32 +53,32 @@ function Left() {
             <IoIosBed />
             <div>Fully Furnished</div>
           </div>
-          <div className="flex space-x-2  text-xs items-center">
+          <div className="flex space-x-2 text-xs items-center">
             <GiRedCarpet />
             <div className="text-[#6B7280]">Carpet area:</div>
             <div className="font-bold">4,772 sqft</div>
           </div>
         </div>
-        <div className=" border-[#E5E7EB] mb-4 mx-4 border-b-[1px]"></div>
-        <div className="text-[#6B7280] text-sm font-bold px-4">
+        <div className=" border-[#E5E7EB] mb-4 mx-4 border-b-[1px] md:block hidden"></div>
+        <div className="text-[#6B7280] text-sm font-bold px-4 md:block hidden">
           Office for rent in Bandra Kurla Complex, Mumbai
         </div>
-        <div className="flex text-sm mt-2 font-thin text-[#9CA3AF] mb-4 px-4">
+        <div className="flex md:text-sm text-xs md:mt-2 font-thin text-[#9CA3AF] mb-4 px-4">
           {" "}
           Welcome to our modern and spacious office...{" "}
-          <a href="" className="text-blue-400 font-normal">
+          <a href="" className="text-blue-400 font-normal md:text-sm text-xs">
             Read More
           </a>
         </div>
-        <div className="border-b-[1px] w-full border-[#E5E7EB] mb-4"></div>
-        <div className="flex justify-between items-center mb-4 px-4">
-          <div className="text-[#6250FF] font-semibold text-sm">
+      <div className="border-b-[1px] w-full border-[#E5E7EB] mb-4"></div>
+        <div className="flex justify-between items-center mb-4 px-4 ">
+          <div className="text-[#6250FF] font-semibold text-sm md:block hidden">
             <a href="">Show All Images</a>
           </div>
-          <div className="flex space-x-2">
+          <div className="flex space-x-2  md:w-auto w-full ">
             <Button
               variant={"default"}
-              className="bg-[#5359EA] text-white px-8"
+              className="bg-[#5359EA] text-white px-8 w-full"
             >
               <div className="text-white">Shortlist</div>
             </Button>
@@ -95,7 +95,7 @@ function Left() {
 function Right() {
   return (
     <div className="flex p-2 pl-4 ">
-      <div className="w-1/3 border-b-[1px] pb-4">
+      <div className="md:w-1/3 border-b-[1px] pb-4">
         <img src={image1.src} alt="" className="rounded-lg h-24 w-28" />
       </div>
       <div className=" flex flex-col w-2/3 pt-1 border-b-[1px] pb-4 ">
@@ -160,26 +160,46 @@ function Plug() {
 function mainpage() {
   const data = [1, 2, 3, 4, 5];
   return (
-    <div className="flex mb-8">
-      <div className="flex  w-2/3 pl-16 flex-col">
+    <div className="flex mb-8 ">
+      <div className="flex md:w-2/3 md:pl-16 flex-col px-2">
         <div className="text-[#4B5563] flex items-baseline text-xs mb-4">
           <div className="text-2xl align-top font-medium">
             47 Office Space
           </div>
           <div className="align-baseline">, Lower Parel, Mumbai</div>{" "}
         </div>
-        <div className="flex flex-col space-y-4 mr-4">
+        <div className="flex flex-col space-y-4 md:mr-4 ">
           {data.map((item) => (
             
             <div key={item}>
-              {item===3?<Plug/>:<Left />}
+              {/* {item===3?<Plug/>:<Left />} gotta fix this*/}
+              <Left/>
             </div>
           ))}
+          <div>
+
+        <Button className="md:hidden mx-2 w-full fixed border border-[#9CA3AF] rounded-xl flex justify-between items-center bottom-2 py-8 text-lg space-x-28 "> 
+        {/* gotta fix this */}
+          <div className="flex items-center">
+
+          <div className="text-[#1F2937] font-semibold">
+
+        Shortlisted Properties: 
+          </div>
+          <div className="bg-[#100A55] h-6 w-6 flex justify-center items-center rounded-lg text-white">
+              6
+          </div>
+          </div>
+          <div>
+              <FaAngleUp/>
+          </div>
+        </Button>
+          </div>
         </div>
       </div>
-      <div className="flex-1  w-1/3 pr-16 pl-2">
+      <div className="flex-1 md:block hidden w-1/3 md:pr-16 pl-2 ">
         <div className="flex flex-col space-y-4 mr-4 border rounded-lg w-full ">
-          <div className="font-bold p-4 border-b-[1px] text-lg">
+          <div className="font-bold p-4 border-b-[1px] text-lg md:block hidden">
             Shortlisted Properties
           </div>
           {data.map((item) => (

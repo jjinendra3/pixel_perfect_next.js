@@ -13,7 +13,7 @@ import { IoHomeOutline } from "react-icons/io5";
 
 function mainer() {
   return (
-    <div className="px-16 mb-4">
+    <div className="px-16 mb-4 md:block hidden">
       <div className="text-xs">
         <Breadcrumb>
           <BreadcrumbList>
