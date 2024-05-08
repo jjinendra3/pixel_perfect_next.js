@@ -35,13 +35,13 @@ const buttons: ButtonItem[] = [
 function Buttons() {
   return (
     <div className="bg-[#F8F9FB] py-4 pl-16 mb-4">
-      <div className=" flex space-x-4">
+      <div className=" flex space-x-3">
         {buttons.map((button) => (
-          <div className="bg-white rounded-2xl space-x-1">
+          <div className="bg-white rounded-3xl space-x-1">
             <Button
               variant={"default"}
               key={button.name}
-              className="bg-white border rounded-2xl  "
+              className="bg-white border rounded-3xl  "
             >
               <div className="flex items-center space-x-1 text-[#4B5563] text-sm">
                 {button.icon !== null && button.icon}

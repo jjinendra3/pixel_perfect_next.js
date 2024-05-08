@@ -3,8 +3,6 @@ import { useState } from "react";
 import { IoCallSharp } from "react-icons/io5";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import logo from "../../public/logo.png";
-import avatar from "../../public/avatar.png";
-
 function Head() {
   const [search, setsearch] = useState<string>("");
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -13,10 +11,10 @@ function Head() {
   return (
     <div className="head px-16 flex justify-between items-center mt-4 h-16 mb-4">
       <div className="flex space-x-8">
-        <img src={logo.src} alt="Logo" className="h-12 mb-1" />
+        <img src={logo.src} alt="Logo" className="h-8 mb-1" />
         <div
           role="presentation"
-          className="shadow-lg px-4 py-2 border border-neutral-100 rounded-full flex items-center text-neutral-900 w-96"
+          className="shadow-lg px-4 py-1 border border-neutral-100 rounded-full flex items-center text-neutral-900 w-96"
         >
           <div className="mr-1">
             <svg
@@ -48,7 +46,7 @@ function Head() {
       </div>
       <div className="space-x-8 flex align-middle justify-center items-center ">
         <div className="flex items-center space-x-2 font-bold">
-          <IoCallSharp className="text-[#6250FF]" />
+          <IoCallSharp className="text-[#6250FF] text-lg" />
           <div>+91 8369003785</div>
         </div>
         <Avatar className="h-14 w-14">

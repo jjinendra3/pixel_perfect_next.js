@@ -47,7 +47,7 @@ function mainer() {
             <BreadcrumbSeparator />
             <BreadcrumbItem>
               <BreadcrumbLink className="text-xs">
-                <div className="flex flex-row items-center space-x-2 text-green-400">
+                <div className="flex flex-row items-center space-x-2 text-green-700">
                   <FaEdit />
                   <div>Task 2</div>
                 </div>
