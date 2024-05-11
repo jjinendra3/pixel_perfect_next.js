@@ -45,7 +45,7 @@ function Buttons() {
       <div className="bg-[#F8F9FB] md:py-4 md:pl-16 mb-4 flex md:shadow-none shadow-lg">
         <div className="border-r-[1px] shadow-md py-2 px-4 md:hidden flex justify-between items-center mr-2 relative">
           <Badge className="absolute top-1 right-1 rounded-full p-1 h-5 w-5 flex justify-center items-center text-thin text-white bg-[#6250FF] border-0">
-            2
+            {(verified === true ? 1 : 0) + (images === true ? 1 : 0)}
           </Badge>
           <Button
             variant={"destructive"}
@@ -62,28 +62,28 @@ function Buttons() {
                 className={`bg-white border rounded-3xl py-1 ${
                   (button.name === "With imgs" && images === true) ||
                   (verified === true && button.name === "Verified")
-                    ? "bg-blue-700"
+                    ? "bg-blue-400"
                     : ""
                 } `}
                 onClick={() => {
                   if (button.name === "With imgs") {
-                    let imagess=null;
+                    let imagess = null;
                     if (images === null) {
                       setimages(true);
-                      imagess=true;
+                      imagess = true;
                     } else {
                       setimages(!images);
-                      imagess=!images;
+                      imagess = !images;
                     }
                     context.filter(verified, imagess);
                   } else if (button.name === "Verified") {
-                    let ver=null;
+                    let ver = null;
                     if (verified === null) {
-                      ver=true;
+                      ver = true;
                       setverified(true);
                     } else {
                       setverified(!verified);
-                      ver=!verified
+                      ver = !verified;
                     }
                     context.filter(ver, images);
                   }

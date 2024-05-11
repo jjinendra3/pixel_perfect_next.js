@@ -27,6 +27,18 @@ function Head() {
             role="presentation"
             className="shadow-lg px-4 md:py-1 py-3 border border-neutral-100 rounded-full flex items-center text-neutral-900 md:w-96 w-full"
           >
+            {arr.length > 0 && (
+              <div
+                className="md:hidden rounded-2xl flex justify-center items-center p-1 border h-8 w-8 mr-2"
+                onClick={() => {
+                  const a = [...arr];
+                  a.pop();
+                  setarr(a);
+                }}
+              >
+                {arr.length}
+              </div>
+            )}
             <div className="mr-1">
               <svg
                 width="24"
@@ -58,13 +70,16 @@ function Head() {
               role="presentation"
             ></div>
           </div>
-          <div className="flex pt-2">
+          <div className="hidden md:flex pt-2">
             {arr.length !== 0 &&
               arr.map((item: any) => {
                 return (
                   <div
-                    className="border  rounded-2xl p-1 text-xs font-thin "
+                    className="border  rounded-2xl p-1 text-xs font-thin cursor-pointer "
                     key={item}
+                    onClick={() => {
+                      setarr(arr.filter((i: any) => i !== item));
+                    }}
                   >
                     {item}
                   </div>
