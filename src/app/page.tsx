@@ -1,23 +1,28 @@
 "use client";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect,useState } from "react";
 import Buttons from "@/components/buttons";
 import Head from "@/components/head";
 import Mainer from "@/components/mainbread";
 import MainPage from "@/components/mainpage";
 import { Button } from "@/components/ui/button";
 import { FaAngleUp } from "react-icons/fa6";
+import logo from '../../public/loading.webp'
 import Context from "./ContextAPI";
 function Page() {
   const context = useContext(Context);
+  const [loading, setloading] = useState(true);
   useEffect(() => {
     async function fetchData() {
       await context.fetchall();
+      setloading(false);
     }
     fetchData();
   }, []);
   return (
     <Context.Provider value={context}>
-      <Head />
+      {loading===true?<div className="flex justify-center items-center">
+        <img src={logo.src} alt="" />
+      </div>:<><Head />
       <Buttons />
       <Mainer />
       <MainPage />
@@ -34,7 +39,7 @@ function Page() {
           <FaAngleUp />
         </Button>
         <div></div>
-      </div>
+      </div></>}
     </Context.Provider>
   );
 }

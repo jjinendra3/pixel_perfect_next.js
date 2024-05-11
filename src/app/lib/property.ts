@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const Property = new Schema({
+const PropertySchema = new Schema({
   image: {
     type: String,
     default:
@@ -35,4 +35,6 @@ const Property = new Schema({
   },
 });
 
-module.exports = mongoose.model("Property", Property);
+const Property =
+  mongoose.models.Property || mongoose.model("Property", PropertySchema);
+export default Property;

@@ -13,7 +13,7 @@ const PropState: React.FC<PropStateProps> = ({ children }) => {
   const fetchall = async () => {
     const ids = toast.loading("Fetching all properties");
     try {
-      const { data } = await axios.get(`${BACKEND}/getall`);
+      const { data } = await axios.get(`/api/getall`);
       if (data.success === 0) {
         throw data.error;
       }
@@ -37,21 +37,29 @@ const PropState: React.FC<PropStateProps> = ({ children }) => {
   const shortlisting = (item: any) => {
     setshortlist([...shortlist, item]);
   };
-  const filter = async () => {
+  const filter = async (verified: boolean, images: boolean) => {
     const ids = toast.loading("Filtering properties");
     try {
-      const { data } = await axios.post(`/filter`, {
-        // verified,images
+      const { data } = await axios.post(`/api/filter`, {
+        verified,
+        images,
       });
       if (data.success === 0) {
         throw data.error;
       }
       setproperties(data.properties);
-      toast.update(ids, { render: "Filtered properties", type: "success" });
+      toast.update(ids, {
+        render: "Filtered properties",
+        type: "success",
+        autoClose: 1000,
+        isLoading: false,
+      });
     } catch (error) {
       toast.update(ids, {
         render: "Error filtering properties",
         type: "error",
+        autoClose: 1000,
+        isLoading: false,
       });
       return { success: 0, error: error };
     }
@@ -63,6 +71,7 @@ const PropState: React.FC<PropStateProps> = ({ children }) => {
         fetchall,
         shortlisting,
         shortlist,
+        filter,
       }}
     >
       {children}
